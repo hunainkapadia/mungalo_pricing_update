@@ -1,16 +1,24 @@
-<h1>Mungalo.pk - Pricing update tool</h1>
-<%= flash[:notice] %>
+<h2>Mungalo.pk - Pricing update tool</h2>
+<%= flash[:notice] %> <br/>
 
-<%= link_to 'Destroy All', controller: "product", action: "destroyall" %>
+<p>
+  1. Delete all products first before starting a pricing excercise. <%= link_to 'Click Here to Delete All', controller: "product", action: "destroyall" %>
+</p>
+
+<p>
+  2. Export current prices from wordpress and import here (Name, current_price, new_price)
+  <%= form_tag import_product_index_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV" %>
+  <% end %>
+</p>
+
   <br/>
 
-</br/>
 
-<%= form_tag import_product_index_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import CSV" %>
-<% end %>
-
+<p>
+  3. Search and update in the table below
+</p>
 <table data-pagination="true" data-search="true" data-toggle="table" >
   <thead>
     <tr>
