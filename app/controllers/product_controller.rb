@@ -21,4 +21,16 @@ class ProductController < ApplicationController
    redirect_to root_url, notice: "All Products Imported"
   end
 
+  def update
+  @product = Product.find(params[:id])
+  @product.update(product_params)
+  #@product.update(:new_price => params[:product][:new_price])
+  #product_new_price = params[:product][:new_price]
+  redirect_to root_url
+  end
+
+  private
+    def product_params
+      params.require(:product).permit(:current_price, :new_price)
+    end
 end

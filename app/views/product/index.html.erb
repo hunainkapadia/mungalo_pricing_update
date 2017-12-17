@@ -24,7 +24,10 @@
   <tr>
     <td><%= data.name %></td>
     <td><%= data.current_price %></td>
-    <td><%= data.new_price %></td>
+    <td>    <%= form_for data do |f| %>
+    <%= f.number_field :new_price %>
+    <%= f.submit "Save" %>
+  <% end %></td>
   </tr>
   <% end %>
   </tbody>
