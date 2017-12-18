@@ -24,9 +24,11 @@ class ProductController < ApplicationController
   def update
   @product = Product.find(params[:id])
   @product.update(product_params)
-  #@product.update(:new_price => params[:product][:new_price])
-  #product_new_price = params[:product][:new_price]
-  redirect_to root_url
+
+  respond_to do |f|
+    f.html { redirect_to root_url }
+    f.js
+  end
   end
 
   private
