@@ -24,7 +24,8 @@ class ProductController < ApplicationController
   def update
   @product = Product.find(params[:id])
   @product.update(product_params)
-
+  @productid  = params[:id]
+  
   respond_to do |f|
     f.html { redirect_to root_url }
     f.js

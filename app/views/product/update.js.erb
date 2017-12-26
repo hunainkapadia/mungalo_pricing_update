@@ -1,7 +1,9 @@
 $(document).ready(function(){
 
 
-console.log('running script');
+a = document.getElementById('edit_product_<%= @productid %>');
+a.style.backgroundColor = 'red';
+console.log('<%= @productid %>');
 
 
 });
