@@ -3,6 +3,8 @@
 
 <p>
   1. Delete all products first before starting a pricing excercise. <%#= link_to 'Click Here to Delete All', controller: "product", action: "destroyall" %>
+    Download:
+    <%= link_to "CSV", export_product_index_path(format: "csv") %>
 </p>
 
 <p>
@@ -17,7 +19,7 @@
 
 
 <p>
-  3. Search and update in the table below
+  3. Search and update in the table below. Currently <%= @newpriceproducts %> products do not have new prices.
 </p>
 <table data-pagination="true" data-search="true" data-toggle="table" >
   <thead>
